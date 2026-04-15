@@ -1,53 +1,51 @@
-import {
-  DollarSign, TrendingUp, TrendingDown, Users, Target,
-  Clock, CheckCircle, AlertCircle, ShoppingCart
-} from 'lucide-react'
+import { KPI } from "./types"
 
-import { LucideProps } from "lucide-react"
-
-const ICON_MAP: Record<string, React.ComponentType<LucideProps>> = {
-  DollarSign,
-  TrendingUp,
-  TrendingDown,
-  Users,
-  Target,
-  Clock,
-  CheckCircle,
-  AlertCircle,
-  ShoppingCart,
-}
-
-interface KPICardProps {
-  label: string
-  value: string
-  change?: string
-  changeType?: 'positive' | 'negative' | 'neutral'
-  icon: string
-}
-
-export function KPICard({ label, value, change, changeType = 'neutral', icon }: KPICardProps) {
-  const Icon = ICON_MAP[icon]
-
+export default function KPICard({
+  title,
+  value,
+  change,
+  icon: Icon,
+}: KPI) {
   return (
-    <div className="bg-surface-2 border border-border rounded-xl p-5 flex flex-col gap-3 hover:border-border-2 transition-all">
-      <div className="flex items-center justify-between">
-        <span className="text-sm text-muted">{label}</span>
-        {Icon && (
-          <div className="w-8 h-8 rounded-lg bg-surface-3 border border-border flex items-center justify-center">
-            <Icon size={15} className="text-muted" />
-          </div>
-        )}
+    <div style={styles.card}>
+      <div style={styles.header}>
+        <span>{title}</span>
+        <Icon size={20} />
       </div>
-      <div className="text-2xl font-semibold text-text tracking-tight">{value}</div>
-      {change && (
-        <div className={`text-[12px] font-medium ${
-          changeType === 'positive' ? 'text-green' :
-          changeType === 'negative' ? 'text-red' : 'text-muted'
-        }`}>
-          {changeType === 'positive' && '+'}
-          {change}
+
+      <div style={styles.value}>{value}</div>
+
+      {change !== undefined && (
+        <div
+          style={{
+            ...styles.change,
+            color: change >= 0 ? "green" : "red",
+          }}
+        >
+          {change >= 0 ? "+" : ""}
+          {change}%
         </div>
       )}
     </div>
   )
+}
+
+const styles = {
+  card: {
+    padding: 16,
+    borderRadius: 12,
+    border: "1px solid #eee",
+  },
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: 8,
+  },
+  value: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  change: {
+    marginTop: 8,
+  },
 }
