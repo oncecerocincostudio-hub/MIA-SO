@@ -6,11 +6,15 @@ import {
   LayoutDashboard, Bot, Target, DollarSign, Building2,
   TrendingUp, Users, Megaphone, Palette, FlaskConical,
   Lightbulb, Settings, TrendingDown, ShoppingCart,
-  CheckCircle, AlertCircle, Clock
+  CheckCircle, AlertCircle, Clock,
+  type LucideProps
 } from 'lucide-react'
+import { ForwardRefExoticComponent, RefAttributes } from 'react'
 import { NAV_SECTIONS } from '@/lib/data'
 
-const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+type LucideIcon = ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>
+
+const ICON_MAP: Record<string, LucideIcon> = {
   LayoutDashboard, Bot, Target, DollarSign, Building2,
   TrendingUp, Users, Megaphone, Palette, FlaskConical,
   Lightbulb, Settings, TrendingDown, ShoppingCart,

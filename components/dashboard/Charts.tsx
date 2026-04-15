@@ -1,7 +1,7 @@
 'use client'
 
 import {
-  LineChart, Line, BarChart, Bar,
+  BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, Area, AreaChart
 } from 'recharts'
