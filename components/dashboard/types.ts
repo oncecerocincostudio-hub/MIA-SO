@@ -1,10 +1,13 @@
 import { LucideProps } from "lucide-react"
 
-export type IconType = React.ComponentType<LucideProps>
-
-export interface KPI {
-  title: string
-  value: string | number
-  change?: number
-  icon: IconType
+const ICON_MAP: Record<string, React.ComponentType<LucideProps>> = {
+  DollarSign,
+  TrendingUp,
+  TrendingDown,
+  Users,
+  Target,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  ShoppingCart,
 }
