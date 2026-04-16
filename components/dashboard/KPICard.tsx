@@ -3,7 +3,6 @@ import {
   Clock, CheckCircle, AlertCircle, ShoppingCart,
 } from 'lucide-react'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ICON_MAP: Record<string, React.ElementType<any>> = {
   DollarSign, TrendingUp, TrendingDown, Users, Target,
   Clock, CheckCircle, AlertCircle, ShoppingCart,
