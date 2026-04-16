@@ -14,7 +14,7 @@ import { NAV_SECTIONS } from '@/lib/data'
 
 type LucideIcon = ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>
 
-const ICON_MAP: Record<string, LucideIcon> = {
+const ICON_MAP: Record<string, React.ElementType<any>> = {
   LayoutDashboard, Bot, Target, DollarSign, Building2,
   TrendingUp, Users, Megaphone, Palette, FlaskConical,
   Lightbulb, Settings, TrendingDown, ShoppingCart,
