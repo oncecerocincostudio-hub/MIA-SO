@@ -5,20 +5,15 @@ import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Bot, Target, DollarSign, Building2,
   TrendingUp, Users, Megaphone, Palette, FlaskConical,
-  Lightbulb, Settings, TrendingDown, ShoppingCart,
-  CheckCircle, AlertCircle, Clock,
-  type LucideProps
+  Lightbulb, Settings,
 } from 'lucide-react'
-import { ForwardRefExoticComponent, RefAttributes } from 'react'
 import { NAV_SECTIONS } from '@/lib/data'
 
-type LucideIcon = ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ICON_MAP: Record<string, React.ElementType<any>> = {
   LayoutDashboard, Bot, Target, DollarSign, Building2,
   TrendingUp, Users, Megaphone, Palette, FlaskConical,
-  Lightbulb, Settings, TrendingDown, ShoppingCart,
-  CheckCircle, AlertCircle, Clock,
+  Lightbulb, Settings,
 }
 
 export function Sidebar() {
@@ -26,7 +21,6 @@ export function Sidebar() {
 
   return (
     <aside className="w-[240px] flex-shrink-0 flex flex-col h-screen bg-surface border-r border-border overflow-y-auto">
-      {/* Logo */}
       <div className="px-5 py-5 border-b border-border">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center flex-shrink-0">
@@ -39,7 +33,6 @@ export function Sidebar() {
         </div>
       </div>
 
-      {/* Navigation */}
       <nav className="flex-1 py-3">
         {NAV_SECTIONS.map((section) => (
           <div key={section.title} className="mb-4">
@@ -81,7 +74,6 @@ export function Sidebar() {
         ))}
       </nav>
 
-      {/* Footer */}
       <div className="border-t border-border p-4">
         <Link
           href="/dashboard/settings"
