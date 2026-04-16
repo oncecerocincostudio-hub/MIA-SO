@@ -1,13 +1,10 @@
 import {
   DollarSign, TrendingUp, TrendingDown, Users, Target,
   Clock, CheckCircle, AlertCircle, ShoppingCart,
-  type LucideProps
 } from 'lucide-react'
-import { ForwardRefExoticComponent, RefAttributes } from 'react'
 
-type LucideIcon = ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>
-
-const ICON_MAP: Record<string, LucideIcon> = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ICON_MAP: Record<string, React.ElementType<any>> = {
   DollarSign, TrendingUp, TrendingDown, Users, Target,
   Clock, CheckCircle, AlertCircle, ShoppingCart,
 }
