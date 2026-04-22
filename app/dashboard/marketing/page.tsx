@@ -1,6 +1,6 @@
 import { TopBar } from '@/components/layout/TopBar'
 import { KPICard } from '@/components/dashboard/KPICard'
-import { Chart, BarChartSimple } from '@/components/dashboard/Charts'
+import { BarChartSimple } from '@/components/dashboard/Charts'
 import { CMO_KPIS, MARKETING_FUNNEL, ROI_BY_CHANNEL, CAMPAIGNS, ACTIVE_AGENTS } from '@/lib/data'
 import { AgentCard } from '@/components/dashboard/AlertAgent'
 
@@ -9,21 +9,19 @@ export default function MarketingPage() {
 
   return (
     <>
-      <TopBar currentView="marketing" pageTitle="CMO Dashboard" />
+      <TopBar pageTitle="CMO Dashboard" />
       <main className="flex-1 overflow-y-auto p-6 animate-slide-in">
         <div className="mb-6">
           <h1 className="text-2xl font-semibold text-text">CMO Dashboard</h1>
           <p className="text-sm text-muted mt-1">Marketing performance and campaign management</p>
         </div>
 
-        {/* KPIs */}
         <div className="grid grid-cols-4 gap-4 mb-6">
           {CMO_KPIS.map((kpi) => (
             <KPICard key={kpi.label} {...kpi} />
           ))}
         </div>
 
-        {/* Charts */}
         <div className="grid grid-cols-2 gap-4 mb-6">
           <BarChartSimple
             data={MARKETING_FUNNEL.map(d => ({ category: d.stage, value: d.value }))}
@@ -37,7 +35,6 @@ export default function MarketingPage() {
           />
         </div>
 
-        {/* Campaigns + Agent */}
         <div className="grid grid-cols-3 gap-4">
           <div className="col-span-2 bg-surface-2 border border-border rounded-xl p-5">
             <h2 className="text-sm font-medium text-text mb-4">Active Campaigns</h2>
@@ -47,12 +44,7 @@ export default function MarketingPage() {
                   <div>
                     <div className="text-sm font-medium text-text">{campaign.name}</div>
                     <div className="text-[12px] text-muted mt-0.5">
-                      <span
-                        className="font-medium"
-                        style={{ color: campaign.color }}
-                      >
-                        {campaign.status}
-                      </span>
+                      <span style={{ color: campaign.color }}>{campaign.status}</span>
                       {campaign.daysLeft > 0 && ` · ${campaign.daysLeft} days left`}
                     </div>
                   </div>
