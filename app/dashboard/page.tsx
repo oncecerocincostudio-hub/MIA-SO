@@ -10,7 +10,7 @@ import {
 export default function DashboardPage() {
   return (
     <>
-      <TopBar currentView="dashboard" pageTitle="CEO Dashboard" />
+      <TopBar pageTitle="CEO Dashboard" />
       <main className="flex-1 overflow-y-auto p-6 animate-slide-in">
         {/* Page header */}
         <div className="mb-6">
