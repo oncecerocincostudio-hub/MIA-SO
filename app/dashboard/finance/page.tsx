@@ -7,7 +7,7 @@ import { AlertCircle } from 'lucide-react'
 export default function FinancePage() {
   return (
     <>
-      <TopBar currentView="finance" pageTitle="Finance & Accounting" />
+      <TopBar pageTitle="Finance & Accounting" />
       <main className="flex-1 overflow-y-auto p-6 animate-slide-in">
         <div className="mb-6">
           <h1 className="text-2xl font-semibold text-text">Finance & Accounting</h1>
