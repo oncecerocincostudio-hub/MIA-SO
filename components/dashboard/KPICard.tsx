@@ -3,10 +3,12 @@ import {
   Clock, CheckCircle, AlertCircle, ShoppingCart,
 } from 'lucide-react'
 
-const ICON_MAP: Record<string, React.ElementType<any>> = {
+const ICON_MAP = {
   DollarSign, TrendingUp, TrendingDown, Users, Target,
   Clock, CheckCircle, AlertCircle, ShoppingCart,
-}
+} as const
+
+type IconName = keyof typeof ICON_MAP
 
 interface KPICardProps {
   label: string
@@ -17,7 +19,7 @@ interface KPICardProps {
 }
 
 export function KPICard({ label, value, change, changeType = 'neutral', icon }: KPICardProps) {
-  const Icon = ICON_MAP[icon]
+  const Icon = ICON_MAP[icon as IconName]
 
   return (
     <div className="bg-surface-2 border border-border rounded-xl p-5 flex flex-col gap-3 hover:border-border-2 transition-all">
