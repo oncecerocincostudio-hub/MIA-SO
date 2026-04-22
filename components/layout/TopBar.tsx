@@ -3,20 +3,17 @@
 import { Command, Bell, ChevronDown, Zap, User } from 'lucide-react'
 
 interface TopBarProps {
-  currentView: string
   pageTitle: string
 }
 
-export function TopBar({ currentView, pageTitle }: TopBarProps) {
+export function TopBar({ pageTitle }: TopBarProps) {
   return (
     <header className="h-14 flex-shrink-0 flex items-center justify-between px-6 bg-surface border-b border-border">
-      {/* Left: breadcrumb */}
       <div>
         <div className="text-[11px] text-muted">Current View</div>
         <div className="text-sm font-semibold text-text leading-tight">{pageTitle}</div>
       </div>
 
-      {/* Center: AI Command Center */}
       <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-border-2 bg-surface-2 hover:border-accent hover:bg-surface-3 transition-all text-sm text-text group">
         <Command size={14} className="text-accent" />
         <span>AI Command Center</span>
@@ -25,7 +22,6 @@ export function TopBar({ currentView, pageTitle }: TopBarProps) {
         </span>
       </button>
 
-      {/* Right: actions */}
       <div className="flex items-center gap-2">
         <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-accent hover:bg-accent-2 text-white text-sm font-medium transition-all">
           <Zap size={14} />
