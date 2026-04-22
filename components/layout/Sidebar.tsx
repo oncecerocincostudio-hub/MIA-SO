@@ -9,12 +9,13 @@ import {
 } from 'lucide-react'
 import { NAV_SECTIONS } from '@/lib/data'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ICON_MAP: Record<string, React.ElementType<any>> = {
+const ICON_MAP = {
   LayoutDashboard, Bot, Target, DollarSign, Building2,
   TrendingUp, Users, Megaphone, Palette, FlaskConical,
   Lightbulb, Settings,
-}
+} as const
+
+type IconName = keyof typeof ICON_MAP
 
 export function Sidebar() {
   const pathname = usePathname()
@@ -40,7 +41,7 @@ export function Sidebar() {
               {section.title}
             </div>
             {section.items.map((item) => {
-              const Icon = ICON_MAP[item.icon]
+              const Icon = ICON_MAP[item.icon as IconName]
               const isActive = pathname === item.href
               return (
                 <Link
