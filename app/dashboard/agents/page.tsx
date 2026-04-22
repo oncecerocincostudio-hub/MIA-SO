@@ -48,7 +48,7 @@ const STATUS_BADGE = {
 export default function AgentsPage() {
   return (
     <>
-      <TopBar currentView="agents" pageTitle="AI Agents" />
+      <TopBar pageTitle="AI Agents" />
       <main className="flex-1 overflow-y-auto p-6 animate-slide-in">
         <div className="mb-6">
           <h1 className="text-2xl font-semibold text-text">AI Agents</h1>
