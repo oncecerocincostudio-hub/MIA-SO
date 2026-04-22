@@ -21,7 +21,7 @@ export default function PlanningPage() {
 
   return (
     <>
-      <TopBar currentView="planning" pageTitle="Strategy & Planning" />
+      <TopBar pageTitle="Strategy & Planning" />
       <main className="flex-1 overflow-y-auto p-6 animate-slide-in">
         <div className="mb-6">
           <h1 className="text-2xl font-semibold text-text">Strategy & Planning</h1>
