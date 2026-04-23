@@ -1,18 +1,19 @@
-import KPICard from "./KPICard"
-import { KPI } from "./types"
+import { KPICard } from './KPICard'
+
+interface KPI {
+  label: string
+  value: string
+  change?: string
+  changeType?: 'positive' | 'negative' | 'neutral'
+  icon: string
+}
 
 export default function DashboardGrid({ data }: { data: KPI[] }) {
   return (
-    <div style={grid}>
-      {data.map((item, i) => (
-        <KPICard key={i} {...item} />
+    <div className="grid grid-cols-4 gap-4">
+      {data.map((kpi) => (
+        <KPICard key={kpi.label} {...kpi} />
       ))}
     </div>
   )
-}
-
-const grid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-  gap: 16,
 }
