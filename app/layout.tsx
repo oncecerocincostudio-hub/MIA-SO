@@ -3,17 +3,13 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'MIA OS — AI Operating System',
-  description: 'My Intelligent Advisor OS — Centro de control empresarial con IA',
+  description: 'My Intelligent Advisor OS',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className="antialiased">{children}</body>
+      <body>{children}</body>
     </html>
   )
 }
