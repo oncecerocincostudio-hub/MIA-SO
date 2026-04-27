@@ -1,5 +1,21 @@
 import { AlertCircle, AlertTriangle, Info } from 'lucide-react'
-import { Alert, Agent } from '@/lib/data'
+
+interface Alert {
+  id: string
+  type: 'critical' | 'warning' | 'info'
+  title: string
+  description: string
+  time: string
+}
+
+interface Agent {
+  id: string
+  name: string
+  status: 'active' | 'idle' | 'offline'
+  task: string
+  progress: number
+  color: string
+}
 
 export function AlertCard({ alert }: { alert: Alert }) {
   const config = {
